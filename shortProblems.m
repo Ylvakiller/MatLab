@@ -23,10 +23,10 @@ eVac = 'Hello';
 % a 9x9 matrix full of 0’s with a different matrix on the main diagonal, the
 % different matrix will be [1 2 3 4 5 4 3 2 1]
 
-aMat = ones(9)*2
+aMat = ones(9)*2;
 bMatTemp = [1 2 3 4 5 4 3 2 1];%create a matrix to be put into a large matrix
-bMat = diag(bMatTemp)
-cMat = reshape(linspace(1,100),[10,10])
+bMat = diag(bMatTemp);
+cMat = reshape(linspace(1,100),[10,10]);
 dMat = NaN(3,4);
 eMat = [13 -1 5;-22 10 -87];
 fMat = reshape(-3+(3+3)*rand(3*4,1),[3,4]);
@@ -44,4 +44,13 @@ xMat = (aVec*bVec)*aMat^2;
 yMat = (bVec*aVec);
 zMat = det(cMat)*(transpose(aMat*bMat));%apparentely the cMat his determinant is 0...
 % Problem 7
-cSum = sum(cMat)
+cSum = sum(cMat);
+eMean = mean(eMat);
+eMatTemp = [1 1 1];
+eMat(1,:)=eMatTemp;
+cSub = cMat([2 3 4 5 6 7 8 9],[2 3 4 5 6 7 8 9]);
+lin = linspace(1,20,20);
+linTemp = 2*rem(1:20,2)-1; %this function is quite complicated, bassically what I do is I take the numbers from 1-20, then devide them by 2, look at what remains (either 0 or 1) then multiply everything by 2, and then substract 1 to get alternating 1 and -1, which I can mutiply with the original vector
+lin = lin.*linTemp;
+r = rand(1,5);
+r(find(r<0.5)) = 0;
